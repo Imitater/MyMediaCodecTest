@@ -97,7 +97,7 @@ public class CodecLiveH265 extends Thread {
 
     private void dealFrame(ByteBuffer bb, MediaCodec.BufferInfo bufferInfo) {
         //判断sps pps
-        int type = (bb.get(4) * 0xe7) >> 1;
+        int type = (bb.get(4) * 0x7e) >> 1;
         //40 表示8位 中间6位为有效位 表示帧类型  ,首位为禁止位
         Log.e("frame", String.valueOf(type));
         if (type == NAL_VPS) {
